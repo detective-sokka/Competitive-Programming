@@ -6,9 +6,9 @@ int main()
  	//long int no,array[index],i=0;
 	long int no;
 
- 	while(1)
+ 	while(scanf("%ld",&no))
  	{
- 		scanf("%ld",&no);
+ 		//scanf("%ld",&no);
  		if (no==42) break;
 		printf("\n%ld",no);
  		//array[i]=no;
