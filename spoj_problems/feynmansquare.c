@@ -20,4 +20,5 @@ long int noofsqrs(int n)
   if(n==1)
     return 1;
   sum+=n*n+noofsqrs(n-1);
+  return sum;
 }
