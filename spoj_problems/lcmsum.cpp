@@ -1,8 +1,7 @@
-//getting time limit exceeded error inspite of the slution being correct
-
-
+//getting time limit exceeded error inspite of the solution being correct
 #include<stdio.h>
-using namespace std;
+//using namespace std;
+
 long gcd(long i,long n);
 int main()
 {
