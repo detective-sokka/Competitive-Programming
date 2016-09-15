@@ -4,7 +4,7 @@
 
 #include<stdio.h>
 #include<cstdio>
-#define gc getchar_unlocked     //fast-io : faster input compared to scanf
+//#define gc getchar_unlocked     //fast-io : faster input compared to scanf
 //using namespace std;
 
 //int gcd(int i,int n);
