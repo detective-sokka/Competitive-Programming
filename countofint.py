@@ -1,48 +1,30 @@
 # https://www.hackerearth.com/problem/algorithm/fact-count-a6300182/
-# using segmented seive method
-
-seive = []
-primes = []
-
-
-def generateSeive(input_max):
-    global seive
-    global primes
-    seive = [True for i in range(input_max+1)]
-    p = 2
-    while p**2 <= input_max:
-        if seive[p] is True:
-            for j in range(p ** 2, input_max + 1, p):
-                seive[j] = False
-        p += 1
-    seive[0] = False
-    seive[1] = False
-    for i in range(input_max):
-        if seive[i] is True:
-            primes.append(i)
+import numpy as np
+max_sieve = 100000000
+sieve_array = np.ones(max_sieve+1, dtype=bool)
+sieve_array[0] = False
+sieve_array[1] = False
 
 
-generateSeive(100000)
+def generateSieve():
+    index = 2
+    while index * index <= max_sieve:
+        if sieve_array[index]:
+            sieve_array[index*index::index] = False
 
-
-def isPrime(input_num):
-    global primes
-    index = 0
-    while primes[index] ** 2 <= input_num:
-        if input_num % primes[index] == 0:
-            return False
         index += 1
-    return True
 
 
 T = int(input())
+generateSieve()
 
-
-for testcase in range(T):
+for _ in range(T):
     N = int(input())
-    input_list = [int(x) for x in input().split()]
-    result_count = 0
-    for element in input_list:
-        if isPrime(element):
-            result_count += 1
-    print(result_count)
+    testcase_input = list(map(int, input().split()))
+    testcase_count = 0
+
+    for element in testcase_input:
+        if sieve_array[element]:
+            testcase_count += 1
+
+    print(testcase_count)
