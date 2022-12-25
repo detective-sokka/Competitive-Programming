@@ -1,0 +1,91 @@
+from manim import *
+
+class Histogram(Scene):            
+    def construct(self):
+
+        values = [2,1,5,6,2,3]
+        chart = BarChart(
+            values=values,
+            bar_names=["two", "one", "five", "six", "two", "three"],
+            y_range=[-2, 10, 1],
+            y_length=10,
+            x_length=10,
+            x_axis_config={"font_size": 36},            
+        )
+
+        c_bar_lbls = chart.get_bar_labels(
+            color=WHITE, label_constructor=MathTex, font_size=36
+        )
+
+        y_axis = chart.get_y_axis()        
+        x_axis = chart.get_x_axis()                                
+        d_lines = []
+
+        # Creating horizontal lines for reference
+
+        for i in values:
+            print(y_axis.number_to_point(i)[1])
+            dashed_line = DashedLine(config.left_side, config.right_side)
+            d_lines.append(dashed_line)
+            left_point = y_axis.number_to_point(i)            
+            right_point = y_axis.number_to_point(i)
+            right_point[0] = config.right_side[0]
+            dashed_line.put_start_and_end_on(left_point, right_point)
+            
+
+        group_lines = VGroup(*d_lines)
+
+        # playing the different lines
+        self.play(DrawBorderThenFill(chart))        
+        self.add(chart, c_bar_lbls)
+        self.play(Create(c_bar_lbls))           
+        self.play(DrawBorderThenFill(group_lines))            
+    
+
+'''
+class SquareToCircle(Scene):
+    def construct(self):
+        circle = Circle()  # create a circle
+        circle.set_fill(PINK, opacity=0.5)  # set color and transparency
+
+        square = Square()  # create a square
+        square.rotate(PI / 4)  # rotate a certain amount
+
+        self.play(Create(square))  # animate the creation of the square
+        self.play(Transform(square, circle))  # interpolate the square into the circle
+        self.play(FadeOut(square))  # fade out animation
+
+class SquareAndCircle(Scene):
+    def construct(self):
+        circle = Circle()  # create a circle
+        circle.set_fill(PINK, opacity=0.5)  # set the color and transparency
+
+        square = Square()  # create a square
+        square.set_fill(BLUE, opacity=0.5)  # set the color and transparency
+
+        square.next_to(circle, RIGHT, buff=0.5)  # set the position
+        self.play(Create(circle), Create(square))  # show the shapes on screen
+
+class AnimatedSquareToCircle(Scene):
+    def construct(self):
+        circle = Circle()  # create a circle
+        square = Square()  # create a square
+
+        self.play(Create(square))  # show the square on screen
+        self.play(square.animate.rotate(PI / 4))  # rotate the square
+        self.play(
+            ReplacementTransform(square, circle)
+        )  # transform the square into a circle
+        self.play(
+            circle.animate.set_fill(PINK, opacity=0.5)
+        )  # color the circle on screen
+
+class DifferentRotations(Scene):
+    def construct(self):
+        left_square = Square(color=BLUE, fill_opacity=0.7).shift(2 * LEFT)
+        right_square = Square(color=GREEN, fill_opacity=0.7).shift(2 * RIGHT)
+        self.play(
+            left_square.animate.rotate(PI), Rotate(right_square, angle=PI), run_time=2
+        )
+        self.wait()
+'''
