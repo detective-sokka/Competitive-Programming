@@ -1,5 +1,3 @@
-# Competitive Programming 
-
 This is my portfolio for competitive programming. Here i have solved some of the commonly asked competitive programming problems using python. 
 
 ./spoj_problems contains the problems from Spoj code judge
