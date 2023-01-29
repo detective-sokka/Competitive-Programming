@@ -1,7 +1,7 @@
 # 84 - https://leetcode.com/problems/largest-rectangle-in-histogram/
 
 class Solution:
-    def largestRectangleArea(self, heights: List[int]) -> int:
+    def largestRectangleArea(self, heights) -> int:
         # stack 
         stack = list()
         max_area = 0
@@ -23,3 +23,8 @@ class Solution:
             max_area = max(prev_area, max_area)
 
         return max_area
+
+
+vars = list([2, 1, 5, 6, 2, 3])
+sol = Solution()
+print(sol.largestRectangleArea(vars))
