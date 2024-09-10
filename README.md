@@ -7,3 +7,7 @@ OtherProblems contains the problems from other platforms such as HackerEarth, Ha
 Leetcode contains leetcode problems
 
 Animations contains custom animations for problems made using Manim 
+
+All the competitive programming solutions by me for future reference.
+
+cheers
