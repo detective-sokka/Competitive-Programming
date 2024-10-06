@@ -10,4 +10,6 @@ Animations contains custom animations for problems made using Manim
 
 All the competitive programming solutions by me for future reference.
 
+Note : Added GitAuto access. 
+
 cheers
