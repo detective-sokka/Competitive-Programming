@@ -2,6 +2,7 @@ animations/__pycache__
 animations/media
 
 *.DS_Store
+.vscode
 
 # C++
 
