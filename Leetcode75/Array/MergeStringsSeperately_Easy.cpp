@@ -1,9 +1,12 @@
+#include <string>
+#include <iostream>
+
 class Solution {
 public:
-    string mergeAlternately(string word1, string word2) {
+    std::string mergeAlternately(std::string word1, std::string word2) {
 
         int i = 0;
-        string result;
+        std::string result;
         int i1 = 0, i2 = 0;
         
         for (i = 0; i < word1.length() + word2.length(); i++)
@@ -21,3 +24,11 @@ public:
         return result;
     }
 };
+
+int main()
+{
+    Solution *solution = new Solution();
+    std::cout << solution->mergeAlternately("ABCABC", "ABC");
+    delete solution;
+    return 0;
+}
