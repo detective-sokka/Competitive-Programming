@@ -11,9 +11,8 @@ class FileHandling
     std::string fileName;
 
     public:
-        FileHandling(std::string filename)
+        FileHandling(std::string filename) : fileName{filename}
         {
-            this->fileName = filename;
         }
 
         void setFileName(std::string filename)
